@@ -112,7 +112,7 @@ using (var scope = app.Services.CreateScope())
 	 if (!dbContext.Users.Any(u => u.Email == user.Email))
 	 {
 		 var password = new PasswordHasher<AppUser>();
-		 var hashedPassword = password.HashPassword(user, "password123!");
+		 var hashedPassword = password.HashPassword(user, "Password123!");
 		 user.PasswordHash = hashedPassword;
 
 		 dbContext.Users.Add(user);

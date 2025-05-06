@@ -1,0 +1,20 @@
+.wrapper {
+  color: var(--color-primary-contrast);
+  background-color: var(--color-primary);
+
+  padding: var(--step--2);
+}
+
+.content {
+  padding: var(--step--1);
+
+  color: var(--color-primary);
+  background-color: var(--color-primary-contrast);
+
+  border-radius: var(--radius);
+  border: 1px solid var(--color-primary-contrast);
+
+  > * + * {
+    margin-top: var(--step-0);
+  }
+}

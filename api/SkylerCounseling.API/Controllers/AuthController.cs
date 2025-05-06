@@ -66,19 +66,25 @@ namespace SkylerCounseling.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
+			  Console.WriteLine($"Login called {model.Email}, {model.Password}");
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            var user = await _userManager.FindByEmailAsync(model.Email);
+				var isPasswordValid = await _userManager.CheckPasswordAsync(user, model.Password);
+
+				Console.WriteLine($"User found: {user != null}, Password valid: {isPasswordValid}");
+
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+
+				Console.WriteLine($"Login result: succeeded: {result.Succeeded}, not allowed: {result.IsNotAllowed}, locked out: {result.IsLockedOut}");
 
             if (!result.Succeeded)
             {
                 return Unauthorized(new { Message = "Invalid login attempt" });
             }
-
-            var user = await _userManager.FindByEmailAsync(model.Email);
 
             if (user == null)
                 return Unauthorized();

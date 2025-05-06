@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { AuthService } from '../api/v1/api/api';
-import { LoginModel } from '../api/v1/model/models';
+import { LoginModel, RegisterModel } from '../api/v1/model/models';
 
 
 @Injectable({
@@ -13,5 +13,9 @@ export class AuthenticationService {
 
   login(loginModel: LoginModel): Observable<any> {
     return this.service.apiAuthLoginPost(loginModel);
+  }
+
+  register(registerModel: RegisterModel): Observable<any> {
+    return this.service.apiAuthRegisterPost(registerModel);
   }
 }

@@ -1,0 +1,40 @@
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="firstName" formControlName="firstName">
+    @if (form.get('firstName')?.hasError('required')) {
+      <mat-error>First name is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="lastName" formControlName="lastName">
+    @if (form.get('lastName')?.hasError('required')) {
+      <mat-error>Last name is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email">
+    @if (form.get('email')?.hasError('required')) {
+      <mat-error>Email is required</mat-error>
+    }
+    @if (form.get('email')?.hasError('email')) {
+      <mat-error>Invalid email format</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="Password" type="password" formControlName="password">
+    @if (form.get('password')?.hasError('required')) {
+      <mat-error>Password is required</mat-error>
+    }
+    @if (form.get('email')?.hasError('minLength')) {
+      <mat-error>Password must be eight or more characters</mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" (click)="onRegister()">Register</button>
+</form>

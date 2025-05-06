@@ -1,4 +1,145 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+	/* @link https://utopia.fyi/type/calculator?c=320,19,1.125,1440,25,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+	// font steps
+  --step--2: clamp(0.84rem, calc(0.83rem + 0.06vw), 0.88rem);
+  --step--1: clamp(0.94rem, calc(0.88rem + 0.33vw), 1.17rem);
+  --step-0: clamp(1.06rem, calc(0.92rem + 0.71vw), 1.56rem);
+  --step-1: clamp(1.20rem, calc(0.94rem + 1.27vw), 2.08rem);
+  --step-2: clamp(1.35rem, calc(0.94rem + 2.04vw), 2.78rem);
+  --step-3: clamp(1.51rem, calc(0.89rem + 3.13vw), 3.70rem);
+  --step-4: clamp(1.70rem, calc(0.78rem + 4.62vw), 4.93rem);
+  --step-5: clamp(1.91rem, calc(0.58rem + 6.66vw), 6.58rem);
+
+  /* @link https://utopia.fyi/space/calculator?c=320,19,1.2,1440,25,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+	// spacing steps
+  --space-3xs: clamp(0.31rem, calc(0.29rem + 0.09vw), 0.38rem);
+  --space-2xs: clamp(0.63rem, calc(0.57rem + 0.27vw), 0.81rem);
+  --space-xs: clamp(0.88rem, calc(0.79rem + 0.45vw), 1.19rem);
+  --space-s: clamp(1.19rem, calc(1.08rem + 0.54vw), 1.56rem);
+  --space-m: clamp(1.81rem, calc(1.65rem + 0.80vw), 2.38rem);
+  --space-l: clamp(2.38rem, calc(2.16rem + 1.07vw), 3.13rem);
+  --space-xl: clamp(3.56rem, calc(3.24rem + 1.61vw), 4.69rem);
+  --space-2xl: clamp(4.75rem, calc(4.32rem + 2.14vw), 6.25rem);
+  --space-3xl: clamp(7.13rem, calc(6.48rem + 3.21vw), 9.38rem);
+
+	// character steps
+	--char-0: 60ch;
+	--char-1: 45ch;
+	--char-2: 40ch;
+	--char-3: 35ch;
+	--char-4: 25ch;
+	--char-5: 20ch;
+	--char-6: 17ch;
+
+	// other
+	--radius: 1rem;
+	--flow-space: 1em;
+	--border-size: 0.125rem;
+
+  // colorscheme
+  --color-primary: rgb(44, 45,48);
+  --color-primary-contrast: rgb(255, 255, 255);
+}
+
+/* reset.css @link https://github.com/hankchizljaw/modern-css-reset/blob/master/src/reset.css */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+fieldset,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+	padding-left: 0;
+}
+
+/* prevents the page from going outside the viewport for mobile  */
+html, body {
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+/* Set core root defaults */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5em;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+	text-decoration: none;
+
+	// mobile still gets underlined links
+	@media (pointer: coarse) {
+		text-decoration: underline;
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+p {
+	font-size: var(--step-0);
+}
