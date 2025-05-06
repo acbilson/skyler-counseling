@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SkylerCounseling.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+786f3c8f1255ef802d450103cd2331fa9b4837f8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e77a18660fc9d5f97364a60e770be622c2efc661")]
 [assembly: System.Reflection.AssemblyProductAttribute("SkylerCounseling.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SkylerCounseling.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

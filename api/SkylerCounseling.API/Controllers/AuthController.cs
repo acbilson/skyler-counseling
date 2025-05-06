@@ -79,6 +79,10 @@ namespace SkylerCounseling.API.Controllers
             }
 
             var user = await _userManager.FindByEmailAsync(model.Email);
+
+            if (user == null)
+                return Unauthorized();
+
             var token = GenerateJwtToken(user);
 
             return Ok(new
@@ -98,12 +102,12 @@ namespace SkylerCounseling.API.Controllers
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Email!),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["Jwt:ExpiryInDays"]));
 
@@ -121,15 +125,15 @@ namespace SkylerCounseling.API.Controllers
 
     public class LoginModel
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public required string Email { get; set; }
+        public required string Password { get; set; }
     }
 
     public class RegisterModel
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public required string Email { get; set; }
+        public required string Password { get; set; }
+        public required string FirstName { get; set; }
+        public required string LastName { get; set; }
     }
 }
