@@ -1,0 +1,14 @@
+set dotenv-load
+set shell := ["/opt/homebrew/bin/fish", "-c"]
+
+# starts the server
+start:
+  npm run start
+
+# generates a typescript openapi client
+generate: update-spec
+  openapi-generator generate -i openapi/api.json -g typescript -o openapi/client
+
+# update the openapi spec
+update-spec:
+  xh https://localhost:7208/openapi/v1.json --verify no > openapi/api.json
