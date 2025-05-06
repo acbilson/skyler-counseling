@@ -15,6 +15,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+	 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
 // database is configured in OnConfiguring method of AppDbContext
 
 // Configure Identity
@@ -62,6 +67,9 @@ builder.Services.AddCors(options =>
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// TODO: learn how to use AutoMapper
+// builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 
