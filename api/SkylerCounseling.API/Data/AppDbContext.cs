@@ -19,7 +19,8 @@ namespace SkylerCounseling.API.Data
 		  }
 
         // Define your DbSets here
-        // public DbSet<Client> Clients { get; set; }
+        //public DbSet<AppUser> Users { get; set; }
+		  public DbSet<AppText> AppTexts { get; set; }
         // public DbSet<Appointment> Appointments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -27,6 +28,12 @@ namespace SkylerCounseling.API.Data
             base.OnModelCreating(builder);
 
             // Configure your entity relationships and constraints here
+
+				builder.Entity<AppText>(entity => {
+						entity.ToTable("AppTexts");
+						entity.HasKey(e => e.Id);
+
+						});
         }
     }
 }

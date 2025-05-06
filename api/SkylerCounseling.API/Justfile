@@ -1,0 +1,6 @@
+set dotenv-load
+set shell := ["/opt/homebrew/bin/fish", "-c"]
+
+# runs the server
+run:
+  dotnet run

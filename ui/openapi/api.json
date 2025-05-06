@@ -73,6 +73,19 @@
           }
         }
       }
+    },
+    "/api/Text": {
+      "get": {
+        "tags": [
+          "Text"
+        ],
+        "operationId": "GetText",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -120,6 +133,9 @@
   "tags": [
     {
       "name": "Auth"
+    },
+    {
+      "name": "Text"
     }
   ]
 }

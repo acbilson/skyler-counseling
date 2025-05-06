@@ -1,2 +1,22 @@
-<p>login works!</p>
-<button type=button (click)="onLogin()">
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email">
+    @if (form.get('email')?.hasError('required')) {
+      <mat-error>email is required</mat-error>
+    }
+    @if (form.get('email')?.hasError('email')) {
+      <mat-error>Invalid email format</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="Password" type="password" formControlName="password">
+    @if (form.get('password')?.hasError('required')) {
+      <mat-error>password is required</mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" (click)="onLogin()">Login</button>
+</form>

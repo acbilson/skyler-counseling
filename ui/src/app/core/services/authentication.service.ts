@@ -9,11 +9,9 @@ import { LoginModel } from '../api/v1/model/models';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  client = inject(HttpClient);
-  //service = inject(AuthService);
+  service = inject(AuthService);
 
   login(loginModel: LoginModel): Observable<any> {
-    return of();
-    //return this.service.apiAuthLoginPost(loginModel);
+    return this.service.apiAuthLoginPost(loginModel);
   }
 }

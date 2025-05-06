@@ -8,12 +8,16 @@ using Microsoft.Identity.Web;
 using Microsoft.IdentityModel.Tokens;
 using SkylerCounseling.API.Data.Entities;
 using SkylerCounseling.API.Data;
+using SkylerCounseling.API.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+// add services
+builder.Services.AddScoped<ITextService, TextService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -89,5 +93,31 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// run ef migrations
+using (var scope = app.Services.CreateScope())
+{
+	 var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+	 dbContext.Database.Migrate();
+
+	 // Seed the database with initial data if needed
+	 var user = new AppUser {
+		 FirstName = "Alex",
+		 LastName = "Bilson",
+		 Email = "acbilson@gmail.com",
+		 NormalizedEmail = "acbilson@gmail.com",
+		 UserName = "acbilson",
+		 NormalizedUserName = "acbilson",
+	 };
+	 if (!dbContext.Users.Any(u => u.Email == user.Email))
+	 {
+		 var password = new PasswordHasher<AppUser>();
+		 var hashedPassword = password.HashPassword(user, "password123!");
+		 user.PasswordHash = hashedPassword;
+
+		 dbContext.Users.Add(user);
+		 dbContext.SaveChanges();
+	 }
+}
 
 app.Run();
