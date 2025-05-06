@@ -7,7 +7,7 @@ start:
 
 # generates a typescript openapi client
 generate: update-spec
-  openapi-generator generate -i openapi/api.json -g typescript -o openapi/client
+  openapi-generator generate -i openapi/api.json -g typescript-angular -o src/app/core/api/v1
 
 # update the openapi spec
 update-spec:
