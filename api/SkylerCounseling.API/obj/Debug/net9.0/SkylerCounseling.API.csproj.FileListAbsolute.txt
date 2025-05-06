@@ -1,0 +1,7 @@
+/Users/alexbilson/source/skyler-counseling/api/SkylerCounseling.API/obj/Debug/net9.0/SkylerCounseling.API.csproj.AssemblyReference.cache
+/Users/alexbilson/source/skyler-counseling/api/SkylerCounseling.API/obj/Debug/net9.0/SkylerCounseling.API.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexbilson/source/skyler-counseling/api/SkylerCounseling.API/obj/Debug/net9.0/SkylerCounseling.API.AssemblyInfoInputs.cache
+/Users/alexbilson/source/skyler-counseling/api/SkylerCounseling.API/obj/Debug/net9.0/SkylerCounseling.API.AssemblyInfo.cs
+/Users/alexbilson/source/skyler-counseling/api/SkylerCounseling.API/obj/Debug/net9.0/SkylerCounseling.API.csproj.CoreCompileInputs.cache
+/Users/alexbilson/source/skyler-counseling/api/SkylerCounseling.API/obj/Debug/net9.0/SkylerCounseling.API.MvcApplicationPartsAssemblyInfo.cs
+/Users/alexbilson/source/skyler-counseling/api/SkylerCounseling.API/obj/Debug/net9.0/SkylerCounseling.API.MvcApplicationPartsAssemblyInfo.cache

@@ -1,0 +1,6 @@
+@SkylerCounseling.API_HostAddress = http://localhost:5290
+
+GET {{SkylerCounseling.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
