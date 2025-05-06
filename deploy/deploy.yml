@@ -1,0 +1,7 @@
+---
+- name: Prepare production machine to host Skyler's counseling site
+  hosts: web
+  user: abilson
+  become: true
+  roles:
+    - deploy
