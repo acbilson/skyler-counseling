@@ -38,3 +38,9 @@ start_nginx:
   -v /Users/alexbilson/source/skyler-counseling/dist/browser:/usr/share/nginx/html:ro \
   --name skyler-counseling-nginx \
   nginx:latest
+
+# copies images for nginx to serve
+[private]
+copy_images:
+	cp -r img dist/browser/img
+
