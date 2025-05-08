@@ -3,11 +3,11 @@ set shell := ["/opt/homebrew/bin/fish", "-c"]
 
 # runs a simple ansible ad-hoc command to test the connection
 test-connection:
-	ansible -i ansible/prod.ini --vault-password-file=ansible/.vault_pass -u abilson vultr -m ping
+	ansible -i deploy/prod.ini --vault-password-file=deploy/.vault_pass -u abilson vultr -m ping
 
 # edits the encrypted ansible group variables
 edit-vault:
-	ansible-vault edit --vault-password-file=ansible/.vault_pass ansible/group_vars/web/vault.yml
+	ansible-vault edit --vault-password-file=deploy/.vault_pass deploy/group_vars/web/vault.yml
 
 # copies files to the remote server
 [private]
@@ -16,7 +16,7 @@ init_deploy:
 
 # runs the ansible deployment playbook
 deploy: init_deploy
-	ansible-playbook -i ansible/prod.ini --vault-password-file=ansible/.vault_pass --skip-tags onetime ansible/deploy.yml
+	ansible-playbook -i deploy/prod.ini --vault-password-file=deploy/.vault_pass --skip-tags onetime deploy/deploy.yml
 
 # build a local Podman container image
 build:
@@ -34,7 +34,7 @@ start: start_nginx
 [private]
 start_nginx:
   podman run --rm -d \
-  --expose 5000 -p 5000:80 \
-  -v /Users/alexbilson/source/skyler-counseling/mnt:/usr/share/nginx/html:ro \
+  --expose 4999 -p 4999:80 \
+  -v /Users/alexbilson/source/skyler-counseling/dist/browser:/usr/share/nginx/html:ro \
   --name skyler-counseling-nginx \
   nginx:latest

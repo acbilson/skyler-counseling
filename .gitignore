@@ -3,4 +3,6 @@ bin/
 obj/
 .angular/
 .openapi-generator/
+dist/
 *.db
+.vault_pass

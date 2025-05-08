@@ -5,6 +5,10 @@ set shell := ["/opt/homebrew/bin/fish", "-c"]
 start:
   npm run start
 
+# builds the project
+build:
+  npm run build
+
 # generates a typescript openapi client
 generate: update-spec
   openapi-generator generate -i openapi/api.json -g typescript-angular -o src/app/core/api/v1
