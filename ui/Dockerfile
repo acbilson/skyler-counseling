@@ -18,6 +18,6 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /srv/dist
 
 # adds static images
-COPY ./img /srv/img
+COPY public/images /srv/dist/skyler-counseling/browser/images
 
 CMD ["nginx", "-g", "daemon off;"]
