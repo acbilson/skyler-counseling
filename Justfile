@@ -18,9 +18,13 @@ init_deploy:
 deploy: init_deploy
 	ansible-playbook -i deploy/prod.ini --vault-password-file=deploy/.vault_pass --skip-tags onetime deploy/deploy.yml
 
-# build a local Podman container image
-build:
-	podman build -t abilson/skyler-counseling:0.1 -t abilson/skyler-counseling:latest --file Dockerfile .
+# build the local Podman container ui image
+build_ui:
+	cd ui; podman build -t acbilson/skyler-counseling-ui:0.1 -t acbilson/skyler-counseling-ui:latest .
+
+# build the local Podman container api image
+build_api:
+	cd api; podman build -t acbilson/skyler-counseling:0.1 -t acbilson/skyler-counseling:latest .
 
 # starts the production image with nginx server
 start: start_nginx
@@ -31,13 +35,11 @@ start: start_nginx
   acbilson/skyler-counseling:latest
 
 # starts an nginx server to serve static and media assets
-[private]
 start_nginx:
   podman run --rm -d \
   --expose 4999 -p 4999:80 \
-  -v /Users/alexbilson/source/skyler-counseling/dist/browser:/usr/share/nginx/html:ro \
   --name skyler-counseling-nginx \
-  nginx:latest
+  acbilson/skyler-counseling-ui:latest
 
 # copies images for nginx to serve
 [private]
