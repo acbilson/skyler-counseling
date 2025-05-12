@@ -14,6 +14,7 @@
     }
 
     h1 {
+    font-size: var(--step-2);
     padding: var(--step--2);
     width: fit-content;
 
@@ -23,8 +24,8 @@
     }
 
     button {
-      padding: var(--step--2);
-      background-color: var(--color-primary);
+      border-left: 0.25rem solid var(--color-primary-contrast);
+      border-bottom: 0.25rem solid var(--color-primary-contrast);
     }
   }
 }

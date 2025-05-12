@@ -16,11 +16,6 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  li + li {
-    margin-left: 1em;
-  }
-
   }
 }
 
