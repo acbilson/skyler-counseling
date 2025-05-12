@@ -7,6 +7,10 @@ export const routes: Routes = [
     loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
   },
   {
+    path: 'book',
+    loadChildren: () => import('./features/booking/booking.module').then(m => m.BookingModule)
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)
   },

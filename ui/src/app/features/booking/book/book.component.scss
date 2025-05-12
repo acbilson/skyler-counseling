@@ -1,0 +1,11 @@
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 30em;
+
+  padding: var(--step--2);
+  margin: var(--step--1) auto;
+
+  background-color: var(--color-primary);
+  border-radius: var(--radius);
+}
