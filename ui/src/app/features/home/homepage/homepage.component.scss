@@ -31,7 +31,7 @@
 }
 
 .wrapper {
-  padding: var(--step--2);
+  padding: 0 var(--step--2);
 }
 
 .content {
@@ -45,6 +45,18 @@
 
   p {
     text-align: justify;
+  }
+
+  nav {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+
+    @media (min-width: 600px) {
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: unset;
+    }
   }
 
   padding: var(--step--1);
