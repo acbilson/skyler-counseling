@@ -1,7 +1,7 @@
 ---
 - name: Add api systemd unit file
   ansible.builtin.template:
-    src: container.service
+    src: container-api.service
     dest: '/home/{{ g_user }}/.config/systemd/user/container-{{ project_name }}-api.service'
     owner: '{{ g_user }}'
     mode: '0644'
@@ -10,7 +10,7 @@
 
 - name: Add ui systemd unit file
   ansible.builtin.template:
-    src: container.service
+    src: container-ui.service
     dest: '/home/{{ g_user }}/.config/systemd/user/container-{{ project_name }}-ui.service'
     owner: '{{ g_user }}'
     mode: '0644'

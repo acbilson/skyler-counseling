@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/sdk:latest AS build
 WORKDIR /App
 
 # Copy api source
-COPY ./api .
+COPY . .
 # Restore as distinct layers
 RUN dotnet restore
 # Build and publish a release
