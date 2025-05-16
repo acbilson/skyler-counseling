@@ -1,12 +1,21 @@
 ---
-- name: Add systemd unit file
+- name: Add api systemd unit file
   ansible.builtin.template:
     src: container.service
-    dest: '/home/{{ g_user }}/.config/systemd/user/container-{{ project_name }}.service'
+    dest: '/home/{{ g_user }}/.config/systemd/user/container-{{ project_name }}-api.service'
     owner: '{{ g_user }}'
     mode: '0644'
   notify:
-    - Restart service
+    - Restart API service
+
+- name: Add ui systemd unit file
+  ansible.builtin.template:
+    src: container.service
+    dest: '/home/{{ g_user }}/.config/systemd/user/container-{{ project_name }}-ui.service'
+    owner: '{{ g_user }}'
+    mode: '0644'
+  notify:
+    - Restart UI service
 
 - name: Clone repo
   ansible.builtin.git:
@@ -18,30 +27,27 @@
     key_file: '{{ g_mnt_path }}/git/git_rsa'
   become_user: '{{ g_user }}'
 
-- name: Build the Podman image
+- name: Build the API Podman image
   containers.podman.podman_image:
-    name: '{{ image_name }}'
-    path: '{{ g_src_path }}/{{ repo_name }}'
+    name: '{{ image_name }}-api:latest'
+    path: '{{ g_src_path }}/{{ repo_name }}/api'
     state: build
     build:
       format: docker
   become_user: '{{ g_user }}'
   notify:
-    - Restart service
+    - Restart API service
 
-- name: Create static volume directories
-  ansible.builtin.file:
-    path: '{{ static_root }}'
-    state: directory
-    owner: '{{ g_user }}'
-    mode: '0755'
-
-- name: Create media volume directories
-  ansible.builtin.file:
-    path: '{{ media_root }}'
-    state: directory
-    owner: '{{ g_user }}'
-    mode: '0755'
+- name: Build the UI Podman image
+  containers.podman.podman_image:
+    name: '{{ image_name }}-ui:latest'
+    path: '{{ g_src_path }}/{{ repo_name }}/ui'
+    state: build
+    build:
+      format: docker
+  become_user: '{{ g_user }}'
+  notify:
+    - Restart UI service
 
 - name: Create db volume directories
   ansible.builtin.file:
@@ -50,18 +56,27 @@
     owner: '{{ g_user }}'
     mode: '0755'
 
-- name: Enable service
+- name: Enable API service
   ansible.builtin.systemd:
-    name: 'container-{{ project_name }}'
+    name: 'container-{{ project_name }}-api'
     state: started
     enabled: true
     daemon_reload: true
     scope: user
   become_user: '{{ g_user }}'
 
-- name: Create a log directory
+- name: Enable UI service
+  ansible.builtin.systemd:
+    name: 'container-{{ project_name }}-ui'
+    state: started
+    enabled: true
+    daemon_reload: true
+    scope: user
+  become_user: '{{ g_user }}'
+
+- name: Create a UI log directory
   ansible.builtin.file:
-    path: '/var/log/nginx/{{ project_name }}'
+    path: '/var/log/nginx/{{ project_name }}-ui'
     state: directory
     mode: '0755'
 

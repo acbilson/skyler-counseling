@@ -9,13 +9,8 @@ test-connection:
 edit-vault:
 	ansible-vault edit --vault-password-file=deploy/.vault_pass deploy/group_vars/web/vault.yml
 
-# copies files to the remote server
-[private]
-init_deploy:
-	scp -r src/* abilson@vultr:/srv/blackhillsfoodtruck.com/
-
 # runs the ansible deployment playbook
-deploy: init_deploy
+deploy:
 	ansible-playbook -i deploy/prod.ini --vault-password-file=deploy/.vault_pass --skip-tags onetime deploy/deploy.yml
 
 # build the local Podman container ui image

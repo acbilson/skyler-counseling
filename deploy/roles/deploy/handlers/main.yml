@@ -4,9 +4,17 @@
     name: nginx
     state: restarted
 
-- name: Restart service
+- name: Restart UI service
   ansible.builtin.systemd:
-    name: 'container-{{ project_name }}'
+    name: 'container-{{ project_name }}-ui'
+    state: restarted
+    daemon_reload: true
+    scope: user
+  become_user: '{{ g_user }}'
+
+- name: Restart API service
+  ansible.builtin.systemd:
+    name: 'container-{{ project_name }}-api'
     state: restarted
     daemon_reload: true
     scope: user
