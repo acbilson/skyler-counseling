@@ -18,7 +18,7 @@ ExecStart=/usr/bin/podman run \
 --cidfile %t/container-{{ project_name }}-ui.ctr-id \
 --cgroups=no-conmon \
 --replace --rm -d \
---expose {{ exposed_port }} -p {{ exposed_port }}:80 \
+--expose {{ exposed_port_ui }} -p {{ exposed_port_ui }}:80 \
 --name {{ project_name }}-ui \
 {{ image_name }}-ui:latest
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-{{ project_name }}-ui.ctr-id -t 10

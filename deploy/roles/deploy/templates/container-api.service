@@ -18,7 +18,7 @@ ExecStart=/usr/bin/podman run \
 --cidfile %t/container-{{ project_name }}-api.ctr-id \
 --cgroups=no-conmon \
 --replace --rm -d \
---expose {{ exposed_port }} -p {{ exposed_port }}:80 \
+--expose {{ exposed_port_api }} -p {{ exposed_port_api }}:80 \
 -v "{{ db_root }}:/mnt/db" \
 --name {{ project_name }}-api \
 {{ image_name }}-api:latest
