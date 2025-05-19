@@ -88,6 +88,13 @@
   notify:
     - Restart nginx
 
+- name: Add launch page
+  ansible.builtin.template:
+    src: index.html
+    dest: '{{ db_root }}'
+    owner: '{{ g_user }}'
+    mode: '0644'
+
 - name: Enable proxy
   ansible.builtin.file:
     src: '/etc/nginx/sites-available/{{ project_name }}.conf'

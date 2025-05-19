@@ -1,4 +1,4 @@
-FROM node:latest as build
+FROM docker.io/library/node:latest as build
 
 # storing node_modules in a separate layer
 COPY package.json package-lock.json ./
@@ -9,7 +9,7 @@ COPY . .
 # build the app
 RUN npm run build
 
-FROM nginx:latest
+FROM docker.io/library/nginx:latest
 
 # Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
