@@ -2,9 +2,16 @@ app-countdown {
   display: block;
 }
 
-.content {
-  text-align: center;
+hr {
+  width: 95vw;
 
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .flow > * + * {
@@ -39,74 +46,3 @@ app-countdown {
       flex-direction: row;
     }
 }
-
-
-/*
-.background-video {
-
-  video {
-    max-height: 96vh;
-  }
-
-  .title {
-    position: relative;
-    bottom: 16rem;
-    margin-left: 1em;
-
-    > * + * {
-      margin-top: var(--step-1);
-    }
-
-    h1 {
-    font-size: var(--step-2);
-    padding: var(--step--2);
-    width: fit-content;
-
-    background-color: var(--color-primary);
-    border-left: 0.25rem solid var(--color-primary-contrast);
-    border-bottom: 0.25rem solid var(--color-primary-contrast);
-    }
-
-    button {
-      border-left: 0.25rem solid var(--color-primary-contrast);
-      border-bottom: 0.25rem solid var(--color-primary-contrast);
-    }
-  }
-}
-
-.wrapper {
-  padding: 0 var(--step--2);
-}
-
-.content {
-  img {
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: var(--radius);
-  }
-
-  p {
-    text-align: justify;
-  }
-
-  nav {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: start;
-
-    @media (min-width: 600px) {
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: unset;
-    }
-  }
-
-  padding: var(--step--1);
-
-  > * + * {
-    margin-top: var(--step-0);
-  }
-}
-*/
