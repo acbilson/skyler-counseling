@@ -2,7 +2,7 @@
 project_name: skyler-counseling
 repo_name: skyler-counseling
 image_name: localhost/acbilson/skyler-counseling
-server_name: "skyler.{{ g_host }}"
+server_name: "{{ g_host }}"
 exposed_port_ui: 7250
 exposed_port_api: 7251
 
