@@ -1,3 +1,47 @@
+app-countdown {
+  display: block;
+}
+
+.content {
+  text-align: center;
+
+}
+
+.flow > * + * {
+  margin-top: var(--step-0);
+}
+
+.topics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > * {
+      width: fit-content;
+    }
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+    }
+
+  }
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  > * {
+    width: fit-content;
+  }
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+    }
+}
+
+
+/*
 .background-video {
 
   video {
@@ -65,3 +109,4 @@
     margin-top: var(--step-0);
   }
 }
+*/

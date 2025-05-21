@@ -1,30 +1,31 @@
-<div class="background-video">
-  <div>
-    <video autoplay muted loop playsinline>
-      <source src="https://www.scullconstruction.com/wp-content/uploads/2025/01/Scull-Hero-Video.mp4" type="video/mp4" />
-    </video>
-    <div appFadeIn class="title">
-      <h1>The MBS Protocol</h1>
-      <button mat-raised-button type="button" routerLink="/book">Book Now</button>
-    </div>
-  </div>
-</div>
-<div class="wrapper">
-  <div class="content">
-    <nav>
-    <button mat-raised-button type="button">Men</button>
-    <mat-divider [vertical]="true"></mat-divider>
-    <button mat-raised-button type="button">Military</button>
-    <mat-divider [vertical]="true"></mat-divider>
-    <button mat-raised-button type="button">First Responders</button>
-    <mat-divider [vertical]="true"></mat-divider>
-    <button mat-raised-button type="button">Families</button>
-    </nav>
+<div class="flow content">
+<img src="/images/mbs_full_logo.svg" alt="MBS Logo" />
 
-    <img src="/images/skyler_face.jpeg" alt="Skyler Face" />
-    <p>As a former military Chaplain, full-time pastor, and Licensed Counselor, I understand the interconnectedness between the mind, body, and Spirit. My approach empowers clients to develop evidence-based tools for optimizing their mental, physical, and spiritual well-being. Together, we will tailor the counseling process to align with your goals, desires, and aspirations. You’ll be encouraged to explore practices such as mindful movements, breathing exercises, meditation, neuro-linguistic programming (NLP), and wholehearted approaches to navigating life’s challenges and overcoming obstacles.</p>
-    <p>With over a decade of experience in the military, at-risk youth counseling, and spiritual guidance, I’ve learned that we are not limited by our minds or bodies and that our true essence continues beyond this life. With this knowledge base, we will explore together life's profound questions: "Who am I?", "Why am I here?", and "What is my purpose?"</p>
-    <p appFadeIn>Clients can expect a holistic, rejuvenating experience that fosters health and well-being during every session. If you’re ready to overcome obstacles and optimize your mental, physical, and spiritual faculties, contact Rapid City Counselors today to schedule your initial intake by phone or email.</p>
-    <img src="/images/skyler_space_1.jpeg" alt="Skyler Office" />
-  </div>
+<mat-list class="topics">
+  <mat-list-item>MEN</mat-list-item>
+  <mat-divider [vertical]="true"></mat-divider>
+  <mat-list-item>MILITARY</mat-list-item>
+  <mat-divider [vertical]="true"></mat-divider>
+  <mat-list-item>MENTORING</mat-list-item>
+  <mat-divider [vertical]="true"></mat-divider>
+  <mat-list-item>FAMILIES</mat-list-item>
+</mat-list>
+
+<mat-divider />
+
+<p>A custom-built therapy model that integrates mental, physical, and Spiritual interventions so you and your family can thrive.</p>
+
+<mat-divider />
+
+  <app-countdown />
+
+<mat-divider />
+<h2>4 Ways to Learn More</h2>
+
+<mat-list class="links">
+  <mat-list-item><button mat-raised-button>Download PDF</button></mat-list-item>
+  <mat-list-item><button mat-raised-button>Skyer's Bio</button></mat-list-item>
+  <mat-list-item><button mat-raised-button>Contact Skyler</button></mat-list-item>
+  <mat-list-item><button mat-raised-button>Schedule Session 1</button></mat-list-item>
+</mat-list>
 </div>
