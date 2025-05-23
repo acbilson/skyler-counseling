@@ -16,6 +16,7 @@ import { CountdownComponent } from '../countdown/countdown.component';
 export class HomepageComponent {
   textService = inject(TextService);
   text = '';
+  futureDate = new Date(2025, 6, 26);
 
   constructor() {
     this.textService.getText().subscribe((text) => {

@@ -1,3 +1,107 @@
-div {
+.countdown-container {
   text-align: center;
+  padding: 2rem;
+  border-radius: 15px;
+  color: white;
+  max-width: 600px;
+  margin: 0 auto;
 }
+
+.countdown-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  min-width: 80px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.time-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.time-label {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.separator {
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0.7;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.3; }
+}
+
+.target-date {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+.expired-message {
+  background: rgba(255, 0, 0, 0.2);
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.expired-message h3 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  color: #ff6b6b;
+}
+
+.expired-message p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .countdown-container {
+    padding: 1.5rem;
+  }
+
+  .countdown-title {
+    font-size: 1.5rem;
+  }
+
+  .time-unit {
+    min-width: 70px;
+    padding: 0.8rem;
+  }
+
+  .time-value {
+    font-size: 2rem;
+  }
+
+  .separator {
+    font-size: 1.5rem;
+  }
+}
+

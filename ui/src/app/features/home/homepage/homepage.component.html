@@ -17,16 +17,28 @@
 
 <hr />
 
-  <app-countdown />
+<app-countdown
+  [targetDate]="futureDate">
+</app-countdown>
+
 
 <hr />
 
 <h2>4 Ways to Learn More</h2>
 
 <mat-list class="links">
-  <mat-list-item><button mat-raised-button>Download PDF</button></mat-list-item>
-  <mat-list-item><button mat-raised-button>Skyer's Bio</button></mat-list-item>
-  <mat-list-item><button mat-raised-button>Contact Skyler</button></mat-list-item>
-  <mat-list-item><button mat-raised-button>Schedule Session 1</button></mat-list-item>
+  <mat-list-item><button mat-raised-button><a href="/files/MindBodySpiritProtocol.pdf">Download PDF</a></button></mat-list-item>
+
+  <mat-list-item><button mat-raised-button><a href="https://www.psychologytoday.com/us/therapists/skyler-owen-bascom-rapid-city-sd/1432188">Skyer's Bio</a></button></mat-list-item>
+  <mat-list-item>
+    <button mat-raised-button>
+      <a href="mailto:skyler@therapybuilt2thrive.com?subject=Intake%20Inquiry&body=Hello%20Skyler%0A%0AI'm%20interested%20in%20scheduling%20an%20intake%20with%20you.">Contact Skyler</a>
+    </button>
+  </mat-list-item>
+  <mat-list-item>
+    <button mat-raised-button>
+      <a href="mailto:?subject=Intake%20Inquiry&body=Hello%20Skyler%0A%0AI'm%20interested%20in%20scheduling%20an%20intake%20with%20you.">Schedule Session 1</a>
+    </button>
+  </mat-list-item>
 </mat-list>
 </div>
